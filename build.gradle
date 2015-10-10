@@ -1,0 +1,36 @@
+buildscript {
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE")
+    }
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+
+    compile group: fabric3Group, name: 'fabric3-node', version: fabric3Version , transitive: false
+    compile group: fabric3Group, name: 'fabric3-node-extensions', version: fabric3Version, transitive: false
+
+    compile group: fabric3Group, name: 'profile-rs', version: fabric3Version, classifier: 'bin', ext: 'zip'
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    testCompile 'junit:junit:4.12'
+}
+
+
+bootRepackage {
+    mainClass = 'org.fabric3.samples.springboot.StartSample'
+}
+
