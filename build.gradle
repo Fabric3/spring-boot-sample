@@ -23,6 +23,8 @@ dependencies {
 
     compile group: fabric3Group, name: 'profile-rs', version: fabric3Version, classifier: 'bin', ext: 'zip'
 
+    compile group: fabric3Group, name: 'fabric3-spring-boot', version: fabric3Version, transitive: false
+
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
 
